@@ -1,4 +1,5 @@
 const ejs = require("ejs");
+const Path = require("node:path");
 const Hapi = require("@hapi/hapi");
 const Inert = require("@hapi/inert");
 const Vision = require("@hapi/vision");
@@ -11,7 +12,12 @@ const signup = require("./routes/signup.js");
 const _delete = require("./routes/delete.js");
 
 const app = Hapi.Server({
-  port: process.env.PORT || 3000
+  port: process.env.PORT || 3000,
+  routes: {
+    files: {
+      relativeTo: Path.join(__dirname, 'ui')
+    }
+  }
 });
 
 const run = async() => {
@@ -65,7 +71,7 @@ const run = async() => {
       auth: false
     },
     handler: {
-      file: __dirname + '/ui/app.css',
+      file: 'app.css',
     }
   });
 
