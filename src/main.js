@@ -3,7 +3,7 @@ const Hapi = require("@hapi/hapi");
 const Inert = require("@hapi/inert");
 const Vision = require("@hapi/vision");
 const Cookie = require("@hapi/cookie");
-const { db, User } = require("./db.js");
+const { db, User, Link } = require("./db.js");
 const _new = require("./routes/new.js");
 const index = require("./routes/index.js");
 const login  = require("./routes/login.js");
@@ -43,29 +43,28 @@ const run = async() => {
 
   app.route({
     method: 'GET',
+    path: '/u/{id}',
+    options: {
+      auth: { mode: 'optional' }
+    },
+    handler: {
+      const link = await Link.findOne({
+        where: { id: req.params.id }
+      });
+      link.visits = link.visits + 1;
+      await link.save();
+      return h.redirect(link.url);
+    }
+  });
+
+  app.route({
+    method: 'GET',
     path: '/app.css',
     handler: {
       file: __dirname + '/ui/app.css',
     }
   });
 
-  app.route({
-    method: 'GET',
-    path: '/users',
-    handler: async(req, h) => {
-      return await User.findAll();
-    },
-    options: {
-      auth: { mode: 'optional' }
-    }
-  });
-  app.route({
-    method: 'GET',
-    path: '/links',
-    handler: async(req, h) => {
-      return await Link.findAll();
-    }
-  });
   app.route(_new[0]);
   app.route(_new[1]);
   app.route(index[0]);
