@@ -46,7 +46,7 @@ const run = async() => {
     method: 'GET',
     path: '/u/{id}',
     options: {
-      auth: { mode: 'optional' }
+      auth: false
     },
     handler: async(req, h) => {
       const link = await Link.findOne({
@@ -61,6 +61,9 @@ const run = async() => {
   app.route({
     method: 'GET',
     path: '/app.css',
+    options: {
+      auth: false
+    },
     handler: {
       file: __dirname + '/ui/app.css',
     }
