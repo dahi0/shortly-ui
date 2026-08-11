@@ -47,7 +47,7 @@ const run = async() => {
     options: {
       auth: { mode: 'optional' }
     },
-    handler: {
+    handler: async(req, h) => {
       const link = await Link.findOne({
         where: { id: req.params.id }
       });
