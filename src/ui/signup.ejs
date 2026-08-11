@@ -1,0 +1,22 @@
+<html class="w-[100%] h-[100%]">
+  <head>
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="/app.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <script src="https://unpkg.com/eruda"></script>
+    <script>eruda.init()</script>
+  </head>
+  <body class="w-[100%] h-[100%]">
+    <form class="w-[100%] h-[100%] flex items-center justify-center p-4 flex-col lg:flex-col-4 gap-3" method="POST" action="/signup">
+      <p class="bold text-2xl">Sign Up</p>
+      <% if (error) { %>
+      <p class="text-red-500 text-md"><%= errMessage%> </p>
+      <% } %>
+      <input type="text" class="w-full rounded border-outline border-2 px-2 py-2 border-gray-200 text-sm outline-gray-950" placeholder="Enter your name" name="name"/>
+      <input type="email" class="w-full rounded border-outline border-2 px-2 py-2 border-gray-200 text-sm outline-gray-950" placeholder="Enter your email" name="email"/>
+      <input type="password" class="w-full rounded border-outline border-2 px-2 py-2 border-gray-200 text-sm outline-gray-950" placeholder="Enter your password" name="password"/>
+      <button class="py-2 px-4 text-white w-full bg-gray-950 rounded">Sign Up</button>
+      <p>Already have an account?, <a href="/login" class="font-medium text-primary underline-offset-2 hover:underline focus:underline focus:outline-hidden dark:text-primary-dark">Log In</a></p>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+{
+  "name": "shortly-ui",
+  "version": "1.0.0",
+  "description": "a simple link shortening website",
+  "homepage": "https://github.com/dahi0/shortly-ui#readme",
+  "bugs": {
+    "url": "https://github.com/dahi0/shortly-ui/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dahi0/shortly-ui.git"
+  },
+  "license": "ISC",
+  "author": "dahi0",
+  "type": "commonjs",
+  "main": "src/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "@unocss/cli": "^66.7.5",
+    "unocss": "^66.7.5"
+  },
+  "dependencies": {
+    "@hapi/cookie": "^12.0.1",
+    "@hapi/hapi": "^21.4.10",
+    "@hapi/inert": "^7.1.2",
+    "@hapi/vision": "^7.0.3",
+    "bcryptjs": "^3.0.3",
+    "ejs": "^6.0.1",
+    "joi": "^18.2.3",
+    "pg": "^8.23.0",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.37.8"
+  }
+}
