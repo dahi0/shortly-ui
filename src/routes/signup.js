@@ -5,6 +5,9 @@ module.exports = [
   {
     method: 'GET',
     path: '/signup',
+    options: {
+      auth: false
+    }
     handler: (req, h) => {
       return h.view('signup', {
         error: false
@@ -26,6 +29,9 @@ module.exports = [
             error: true,
             errMessage: 'invalid credentials'
           }).takeover();
+        },
+        options: {
+          auth: false
         }
       }
     },
