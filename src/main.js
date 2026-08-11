@@ -30,7 +30,6 @@ const run = async() => {
       name: process.env.AUTH_NAME,
       password: process.env.AUTH_PASSWORD,
       isSecure: process.env.MODE == "production",
-      sameSite: 'Lax',
       clearInvalid: true
     },
     redirectTo: '/signup',
