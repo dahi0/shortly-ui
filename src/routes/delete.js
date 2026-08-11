@@ -10,7 +10,7 @@ module.exports = [
     handler: async(req, h) => {
       const u = req.auth.credentials;
       await Link.destroy({
-        where: { id: req.path.id, ownerID: u.id }
+        where: { id: req.params.id, ownerID: u.id }
       });
       return h.redirect('/');
     }
