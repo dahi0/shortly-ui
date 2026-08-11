@@ -8,6 +8,7 @@ const _new = require("./routes/new.js");
 const index = require("./routes/index.js");
 const login  = require("./routes/login.js");
 const signup = require("./routes/signup.js");
+const _delete = require("./routes/delete.js");
 
 const app = Hapi.Server({
   port: process.env.PORT || 3000
@@ -65,6 +66,7 @@ const run = async() => {
     }
   });
 
+  app.route(_delete[0]);
   app.route(_new[0]);
   app.route(_new[1]);
   app.route(index[0]);
