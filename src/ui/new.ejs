@@ -1,0 +1,16 @@
+<html class="w-[100%] h-[100%]">
+  <head>
+    <title>New</title>
+    <link rel="stylesheet" href="/app.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  </head>
+  <body class="w-[100%] h-[100%]">
+    <form class="w-[100%] h-[100%] flex items-center justify-center p-4 flex-col lg:flex-col-4 gap-3" method="POST" action="/new">
+      <% if (error) { %>
+      <p class="text-red-500 text-md"><%= errMessage%> </p>
+      <% } %>
+      <input type="email" class="w-full rounded border-outline border-2 px-2 py-2 border-gray-200 text-sm outline-gray-950" placeholder="Enter your url" name="url"/>
+      <button class="py-2 px-4 text-white w-full bg-gray-950 rounded">Create</button>
+    </div>
+  </body>
+</html>

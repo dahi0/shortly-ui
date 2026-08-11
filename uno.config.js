@@ -1,6 +1,7 @@
 import { defineConfig, presetWind4 } from 'unocss';
+import { presetIcons } from 'unocss'
 
-module.exports = defineConfig({
+export default defineConfig({
   cli: {
     entry: {
       patterns: [
@@ -10,6 +11,7 @@ module.exports = defineConfig({
     }
   },
   presets: [
-    presetWind4()
+    presetWind4(),
+    presetIcons({})
   ]
 });

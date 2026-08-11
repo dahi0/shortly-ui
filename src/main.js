@@ -4,6 +4,8 @@ const Inert = require("@hapi/inert");
 const Vision = require("@hapi/vision");
 const Cookie = require("@hapi/cookie");
 const { db, User } = require("./db.js");
+const _new = require("./routes/new.js");
+const index = require("./routes/index.js");
 const login  = require("./routes/login.js");
 const signup = require("./routes/signup.js");
 
@@ -41,17 +43,6 @@ const run = async() => {
 
   app.route({
     method: 'GET',
-    path: '/',
-    handler: async(req, h) => {
-      return { a: req.auth.credentials };
-    },
-    options: {
-      auth: { mode: 'required' }
-    }
-  });
-
-  app.route({
-    method: 'GET',
     path: '/app.css',
     handler: {
       file: __dirname + '/ui/app.css',
@@ -63,6 +54,9 @@ const run = async() => {
     path: '/users',
     handler: async(req, h) => {
       return await User.findAll();
+    },
+    options: {
+      auth: { mode: 'optional' }
     }
   });
   app.route({
@@ -72,7 +66,9 @@ const run = async() => {
       return await Link.findAll();
     }
   });
-
+  app.route(_new[0]);
+  app.route(_new[1]);
+  app.route(index[0]);
   app.route(login[0]);
   app.route(login[1]);
   app.route(signup[0]);
