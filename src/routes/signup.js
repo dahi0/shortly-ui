@@ -7,7 +7,7 @@ module.exports = [
     path: '/signup',
     options: {
       auth: false
-    }
+    },
     handler: (req, h) => {
       return h.view('signup', {
         error: false
