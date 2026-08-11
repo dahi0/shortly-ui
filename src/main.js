@@ -71,8 +71,8 @@ const run = async() => {
     options: {
       auth: false
     },
-    handler: {
-      file: 'app.css',
+    handler: async(req, h) => {
+      return h.file('app.css');
     }
   });
 
