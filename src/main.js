@@ -4,7 +4,7 @@ const Inert = require("@hapi/inert");
 const Vision = require("@hapi/vision");
 const Cookie = require("@hapi/cookie");
 const { db, User } = require("./db.js");
-const login  = require("./route/login.js");
+const login  = require("./routes/login.js");
 const signup = require("./routes/signup.js");
 
 const app = Hapi.Server({
