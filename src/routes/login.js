@@ -4,6 +4,9 @@ module.exports = [
   {
     method: 'GET',
     path: '/login',
+    options: {
+      auth: false
+    },
     handler: (req, h) => {
       return h.view('login', {
         error: false
@@ -13,6 +16,9 @@ module.exports = [
   {
     method: 'POST',
     path: '/login',
+    options: {
+      auth: false
+    },
     handler: async(req, h) => {
       const u = await User.findOne({
         where: {
