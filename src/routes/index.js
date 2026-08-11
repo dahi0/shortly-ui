@@ -10,7 +10,8 @@ module.exports = [
     handler: async (req, h) => {
       const u = req.auth.credentials;
       const links = await Link.findAll({
-        where: { ownerID: u.id }
+        where: { ownerID: u.id },
+        order: [['createdAt', 'DESC']]
       });
       return h.view('index', {
         links

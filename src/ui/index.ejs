@@ -5,12 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   </head>
   <body class="w-[100%] h-[100%]">
+  <div class="w-[100%] h-[100%] grid grid-rows-[auto_1fr]">
     <div class="w-full flex items-center justify-between gap-2 px-3 py-2">
       <p class="text-bold text-2xl">My Links</p>
       <a class="i-mdi-plus text-3xl focus:opacity-[70%]" href="/new"></a>
     </div>
-    <% links.forEach(link => { %>
-      <%= link.url %>
-    <% }) %>
+    <div class="w-[100%] h-[100%] p-4">
+      <div class="flex gap-2 flex-col w-full">
+        <% links.forEach(link => { %>
+        <div class="w-[100%] shadow-sm rounded p-2 border-l-6 px-4 py-3 border-r-gray-950 flex flex-col">
+          <a href="/u/<%= link.id %>" class="text-sky-500 underline"><%= link.id %></a>
+          <p><%= link.url %></p>
+          <p>Visits: <%= link.visits %></p>
+          <a href="/delete/<%=link.id%>" class="text-red-500 underline">Delete</button>
+        </div>
+        <% }) %>
+      </div>
+    </div>
+  </div>
   </body>
 </html>
