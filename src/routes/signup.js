@@ -18,6 +18,7 @@ module.exports = [
     method: 'POST',
     path: '/signup',
     options: {
+      auth: false,
       validate: {
         payload: J.object({
           name: J.string().min(3).max(10).required(),
@@ -29,8 +30,7 @@ module.exports = [
             error: true,
             errMessage: 'invalid credentials'
           }).takeover();
-        },
-        auth: false
+        }
       }
     },
     handler: async(req, h) => {
