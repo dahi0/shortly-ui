@@ -24,6 +24,7 @@ const run = async() => {
   await app.register(Inert);
   await app.register(Vision);
   await app.register(Cookie);
+  await db.sync();
   console.log(process.env);
   app.auth.strategy('session', 'cookie', {
     cookie: {

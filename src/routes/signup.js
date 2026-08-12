@@ -30,9 +30,7 @@ module.exports = [
             errMessage: 'invalid credentials'
           }).takeover();
         },
-        options: {
-          auth: false
-        }
+        auth: false
       }
     },
     handler: async(req, h) => {
